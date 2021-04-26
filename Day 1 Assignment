@@ -1,0 +1,67 @@
+1)
+
+create table stocks(stockid int, stockname varchar(20),country varchar(20),stockyear int,stockdate date);
+
+insert into stocks values(1,'DXC','India',2019,to_date('2019/06/12', 'yyyy/mm/dd'));
+
+insert into stocks values(2,'Google','USA',2020,to_date('2020/05/23', 'yyyy/mm/dd'));
+
+insert into stocks values(3,'Microsoft','England',2019,to_date('2019/04/15', 'yyyy/mm/dd'));
+
+insert into stocks values(4,'Capgemini','Paris',2021,to_date('2021/03/12', 'yyyy/mm/dd'));
+
+insert into stocks values(5,'IBM','Belgium',2021,to_date('2021/08/26', 'yyyy/mm/dd'));
+
+select * from stocks;
+
+select to_char(sysdate,'dd/mm/yyyy hh:mi:ss') from dual;
+
+select to_char(sysdate,'dd/mm/yyyy hh:mi:ss') from stocks;
+
+select to_char(sysdate) from dual;
+
+select to_char(sysdate) from stocks;
+
+select to_char(sysdate,'dd/mm/yyyy') from dual;
+
+select to_char(sysdate,'dd/mm/yyyy') from stocks;
+
+select to_char(sysdate,'day') day from dual;
+
+select to_char(sysdate,'day') day from stocks;
+
+select stockdate,stockdate+10 from stocks;
+
+2)
+
+create table sales(salesid int,product varchar(20),productid int,productcost int,salesdate date);
+
+insert into sales values(1,'Samsung',101,1000,to_date('2003/05/03', 'yyyy/mm/dd'));
+
+insert into sales values(2,'Lenovo',102,2000,to_date('2004/06/12', 'yyyy/mm/dd'));
+
+insert into sales values(3,'HP',103,3000,to_date('2005/07/18', 'yyyy/mm/dd'));
+
+insert into sales values(4,'Dell',104,4000,to_date('2005/08/13', 'yyyy/mm/dd'));
+
+insert into sales values(5,'Apple',105,5000,to_date('2007/06/12', 'yyyy/mm/dd'));
+
+select * from sales;
+
+select to_char(sysdate,'dd/mm/yyyy hh:mi:ss') from dual;
+
+select to_char(sysdate,'dd/mm/yyyy hh:mi:ss') from sales;
+
+select to_char(sysdate) from dual;
+
+select to_char(sysdate) from sales;
+
+select to_char(sysdate,'dd/mm/yyyy') from dual;
+
+select to_char(sysdate,'dd/mm/yyyy') from sales;
+
+select to_char(sysdate,'day') day from dual;
+
+select to_char(sysdate,'day') day from sales;
+
+select salesdate,salesdate+10 from sales;
