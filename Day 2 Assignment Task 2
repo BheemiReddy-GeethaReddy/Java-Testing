@@ -1,0 +1,51 @@
+create table tt(
+day varchar(20),
+sess varchar(20), 
+faculty varchar(20),
+sem varchar(20),
+room varchar(20),
+subject varchar(20),
+unique(day,sess,faculty),
+unique(day,sess,sem),
+unique(day,sess,room),
+constraint ppk1com primary key(day,sess,room,sem)
+);
+
+Table created.
+
+insert into tt values('mon',1,'john','7th','r1','java');
+
+1 row created.
+
+insert into tt values('mon',1,'john','5th','r2','testing');
+
+ERROR at line 1:
+ORA-00001: unique constraint (SYSTEM.SYS_C0018564) violated
+
+insert into tt values('mon',1,'cena','7th','r3','dbms');
+
+ERROR at line 1:
+ORA-00001: unique constraint (SYSTEM.SYS_C0018565) violated
+
+insert into tt values('tue',1,'john','7th','r1','java');
+
+1 row created.
+
+insert into tt values('mon',2,'john','7th','r1','java');
+
+1 row created.
+
+select * from tt;
+
+DAY                  SESS                 FACULTY
+-------------------- -------------------- --------------------
+SEM                  ROOM                 SUBJECT
+-------------------- -------------------- --------------------
+mon                  1                    john
+7th                  r1                   java
+
+tue                  1                    john
+7th                  r1                   java
+
+mon                  2                    john
+7th                  r1                   java
