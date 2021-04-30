@@ -1,0 +1,62 @@
+public class Replace {
+
+String myReplace(String data,char find,char replace)
+{
+char[] ar= data.toCharArray();
+
+for(int i=0;i<ar.length;i++)
+{
+
+if(ar[i]==find)
+ar[i]=replace;
+}
+
+String val=new String(ar);
+return  val;
+}
+
+String myReplaceFirst(String data,char find,char replace)
+{
+char[] ar= data.toCharArray();
+
+for(int i=0;i<ar.length;i++)
+{
+
+if(ar[i]==find)
+ar[2]=replace;
+}
+
+String val=new String(ar);
+return  val;
+}
+
+String myReplaceLast(String data,char find,char replace)
+{
+char[] ar= data.toCharArray();
+
+for(int i=0;i<ar.length;i++)
+{
+
+if(ar[i]==find)
+ar[3]=replace;
+}
+
+String val=new String(ar);
+return  val;
+}
+
+
+public static void main(String[] args) {
+
+String test="Hello";
+
+Replace m=new Replace();
+String res= m.myReplace(test, 'H', 'Y');
+String res1= m.myReplaceFirst(test, 'l', 'k');
+String res2= m.myReplaceLast(test, 'l', 'k');
+System.out.println(res);
+System.out.println(res1);
+System.out.println(res2);
+}
+}
+
