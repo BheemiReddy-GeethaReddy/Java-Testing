@@ -1,0 +1,90 @@
+1)
+
+public class Check1 {
+	boolean isEqual(char c1 , char c2)
+	{
+		if(c1==c2)
+			return true;
+       else if (((c1 >= 'a' && c1 <= 'z') || (c1>= 'A' && c1 <= 'Z'))) 
+        { 
+			if (c1 - 32 == c2) 
+                return true;
+			if(c1+32==c2)
+				return true;
+        } 
+       else if (((c2 >= 'a' && c2 <= 'z') || (c2>= 'A' && c2 <= 'Z'))) 
+       { 
+    	   if (c2 - 32 == c1) 
+               return true;
+			if(c2+32==c1)
+				return true;
+       }
+    return false;  
+	}
+	public static void main(String args[])
+	{ 
+	   Check1 check=new Check1();
+	   System.out.println(check.isEqual('a','A'));
+	   System.out.println(check.isEqual('A','A'));
+	   System.out.println(check.isEqual('A','a'));
+	   System.out.println(check.isEqual('a','a'));
+	   System.out.println(check.isEqual('a','B'));
+	   System.out.println(check.isEqual('b','a'));
+	} 
+	}
+
+
+
+2)
+
+public class Check
+{
+boolean isEqual(String str1 , String str2)
+{ 
+	char[] str= str1.toCharArray();
+	char[] stn= str2.toCharArray();
+    int i = 0; 
+    int len1 = str1.length(); 
+    int len2 = str2.length(); 
+    if (len1 != len2) 
+        return false; 
+    while (i < len1) 
+    { 
+        if (str1.charAt(i) == str2.charAt(i)) 
+        { 
+            i++; 
+        } 
+        else if (!((str1.charAt(i) >= 'a' && str1.charAt(i) <= 'z') 
+                || (str1.charAt(i) >= 'A' && str1.charAt(i) <= 'Z'))) 
+        { 
+            return false; 
+        } 
+        else if (!((str2.charAt(i) >= 'a' && str2.charAt(i) <= 'z') 
+                || (str2.charAt(i) >= 'A' && str2.charAt(i) <= 'Z'))) 
+        { 
+            return false; 
+        } 
+        else 
+        { 
+            if (str1.charAt(i) >= 'a' && str1.charAt(i) <= 'z') 
+            { 
+                if (str1.charAt(i) - 32 != str2.charAt(i)) 
+                    return false; 
+            } 
+  
+            else if (str1.charAt(i) >= 'A' && str1.charAt(i) <= 'Z') 
+            { 
+                if (str1.charAt(i) + 32 != str2.charAt(i)) 
+                    return false; 
+            } 
+            i++; 
+        } 
+    } 
+    return true;  
+}
+public static void main(String args[])
+{ 
+   Check check=new Check();
+   System.out.println(check.isEqual("Hello","HELLO"));
+} 
+}
