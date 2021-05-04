@@ -1,0 +1,77 @@
+1)
+
+public class Task {
+		int sum(int... x)
+		{ 
+			  int sum=0;
+				int min=0;
+				int max=0;
+				int even=0;
+				int odd=0;
+				int div=0;
+				int i;
+				for(i=0;i<x.length;i++)
+				{
+					sum+=x[i];
+					if(x[i]>max)
+					{
+						max=x[i];
+					}
+					if(x[i]<min)
+					{
+						min=x[i];
+					}
+					if(x[i]%2==0)
+					{
+						even++;
+					}
+					if(x[i]%2!=0)
+					{
+						odd++;
+					}
+					if(x[i]%3 == 0)
+					{
+			        	div++;
+				  }
+				}
+				System.out.println("max is "+max);
+				System.out.println("min is "+min);
+				System.out.println("Even Digits:"+even);
+				System.out.println("Odd Digits:"+odd);
+				System.out.println("Digits divisible by 3 are :"+div);
+				return sum;
+		}
+			public static void main(String[] args)
+			{
+				Task task=new Task();
+				System.out.println(task.sum(1,2,3,4,5,6,7,8,9));
+			}
+}
+
+
+
+2)
+
+public class StringReverse {
+   String Reverse(String str)
+   {
+	   char[] ar= str.toCharArray();
+	   for(int i=ar.length-1;i>=0;i--)
+	   {
+	   System.out.println(ar[i]);
+	   }
+	   String val=new String(ar);
+	   return  val;
+   }
+   public static void main(String[] args)
+   {
+	   StringReverse s=new StringReverse();
+		System.out.println(s.Reverse("Hello"));
+   }
+}
+
+
+3)
+
+
+
