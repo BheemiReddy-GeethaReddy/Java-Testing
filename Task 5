@@ -39,52 +39,50 @@ public class Check1 {
 
 public class Check
 {
-boolean isEqual(String str1 , String str2)
-{ 
-	char[] str= str1.toCharArray();
-	char[] stn= str2.toCharArray();
-    int i = 0; 
-    int len1 = str1.length(); 
-    int len2 = str2.length(); 
-    if (len1 != len2) 
-        return false; 
-    while (i < len1) 
+    boolean isEqual(String str1 , String str2)
     { 
-        if (str1.charAt(i) == str2.charAt(i)) 
-        { 
-            i++; 
-        } 
-        else if (!((str1.charAt(i) >= 'a' && str1.charAt(i) <= 'z') 
-                || (str1.charAt(i) >= 'A' && str1.charAt(i) <= 'Z'))) 
-        { 
-            return false; 
-        } 
-        else if (!((str2.charAt(i) >= 'a' && str2.charAt(i) <= 'z') 
-                || (str2.charAt(i) >= 'A' && str2.charAt(i) <= 'Z'))) 
-        { 
-            return false; 
-        } 
-        else 
-        { 
-            if (str1.charAt(i) >= 'a' && str1.charAt(i) <= 'z') 
-            { 
-                if (str1.charAt(i) - 32 != str2.charAt(i)) 
-                    return false; 
-            } 
-  
-            else if (str1.charAt(i) >= 'A' && str1.charAt(i) <= 'Z') 
-            { 
-                if (str1.charAt(i) + 32 != str2.charAt(i)) 
-                    return false; 
-            } 
-            i++; 
-        } 
-    } 
-    return true;  
-}
+	    int i = 0; 
+	    char[] str= str1.toCharArray();
+	    char[] stn= str2.toCharArray();
+	    int len1 = str.length; 
+	    int len2 = stn.length; 
+	    if (len1 != len2) 
+	        return false; 
+	    while (i < len1) 
+	    { 
+	        if (str[i] == stn[i]) 
+	        { 
+	            i++; 
+	        } 
+	        else if (!((str[i] >= 'a' && str[i] <= 'z')  || (str[i]>= 'A' && str[i] <= 'Z'))) 
+	        { 
+	            return false; 
+	        } 
+	        else if (!((stn[i] >= 'a' && stn[i] <= 'z') || (stn[i] >= 'A' && stn[i] <= 'Z'))) 
+	        { 
+	            return false; 
+	        } 
+	        else 
+	        { 
+	            if (str[i] >= 'a' && str[i] <= 'z') 
+	            { 
+	                if (str[i] - 32 != stn[i]) 
+	                    return false; 
+	            } 
+	            else if (str[i]>= 'A' && str[i]<= 'Z') 
+	            { 
+	                if (str[i] + 32 != stn[i]) 
+	                    return false; 
+	            } 
+	            i++; 
+	        } 
+	    } 
+	 return true; 
+} 
 public static void main(String args[])
 { 
-   Check check=new Check();
-   System.out.println(check.isEqual("Hello","HELLO"));
+	    Check check=new Check();
+	    System.out.println(check.isEqual("Hello","HELLO"));
 } 
 }
+
