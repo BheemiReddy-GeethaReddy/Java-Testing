@@ -55,19 +55,20 @@ public class StringReverse {
    String Reverse(String str)
    {
 	   char[] ar= str.toCharArray();
+	   String result=" ";
 	   for(int i=ar.length-1;i>=0;i--)
 	   {
-	   System.out.println(ar[i]);
+	       result=result+ar[i];
 	   }
-	   String val=new String(ar);
-	   return  val;
+	   return  result;
    }
    public static void main(String[] args)
    {
 	   StringReverse s=new StringReverse();
-		System.out.println(s.Reverse("Hello"));
+	   System.out.println(s.Reverse("Hello"));
    }
 }
+
 
 
 3)
