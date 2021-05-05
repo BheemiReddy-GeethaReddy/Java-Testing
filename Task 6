@@ -1,53 +1,52 @@
 1)
 
 public class Task {
-		int sum(int... x)
-		{ 
-			  int sum=0;
-				int min=0;
-				int max=0;
-				int even=0;
-				int odd=0;
-				int div=0;
-				int i;
-				for(i=0;i<x.length;i++)
-				{
-					sum+=x[i];
-					if(x[i]>max)
-					{
-						max=x[i];
-					}
-					if(x[i]<min)
-					{
-						min=x[i];
-					}
-					if(x[i]%2==0)
-					{
-						even++;
-					}
-					if(x[i]%2!=0)
-					{
-						odd++;
-					}
-					if(x[i]%3 == 0)
-					{
-			        	div++;
-				  }
-				}
-				System.out.println("max is "+max);
-				System.out.println("min is "+min);
-				System.out.println("Even Digits:"+even);
-				System.out.println("Odd Digits:"+odd);
-				System.out.println("Digits divisible by 3 are :"+div);
-				return sum;
-		}
-			public static void main(String[] args)
-			{
-				Task task=new Task();
-				System.out.println(task.sum(1,2,3,4,5,6,7,8,9));
-			}
+int sum(int... x)
+{ 
+   int sum=0;
+   int min=0;
+   int max=0;
+   int even=0;
+   int odd=0;
+   int div=0;
+   int i;
+   for(i=0;i<x.length;i++)
+   {
+       sum+=x[i];
+       if(x[i]>max)
+       {
+	   max=x[i];
+       }
+       if(x[i]<min)
+       {
+	   min=x[i];
+       }
+       if(x[i]%2==0)
+       {
+	   even++;
+       }
+       if(x[i]%2!=0)
+       {
+	   odd++;
+       }
+       if(x[i]%3 == 0)
+       {
+	   div++;
+       }
+    }
+System.out.println("max is "+max);
+System.out.println("min is "+min);
+System.out.println("Even Digits:"+even);
+System.out.println("Odd Digits:"+odd);
+System.out.println("Digits divisible by 3 are :"+div);
+return sum;
 }
-
+public static void main(String[] args)
+{
+   Task task=new Task();
+   System.out.println(task.sum(1,2,3,4,5,6,7,8,9));
+}
+}
 
 
 2)
@@ -73,5 +72,31 @@ public class StringReverse {
 
 3)
 
+public class StringReverse {
+   String Reverse(String str)
+   {
+	   char[] ar= str.toCharArray();
+	   int i = 0,temp=0;
+	   String result=" ";
+	   for(i=ar.length-1;i>=0;i--)
+	   {
+		   if((ar[temp]>='A' && ar[temp]<='Z') && (ar[i]>='a' && ar[i]<='z'))
+		       result=result+(char)(ar[i]-32);
+		   else if((ar[temp]>='a' && ar[temp]<='z') && (ar[i]>='A' && ar[i]<='Z'))
+		       result=result+(char)(ar[i]+32);
+	           else
+		       result=result+ar[i];
+		   temp++;
+	   }
+   String val=new String(result);
+   return  val;
+}
+public static void main(String[] args)
+   {
+	   StringReverse s=new StringReverse();
+	   System.out.println(s.Reverse("HeLloWorld")); 
+	   System.out.println(s.Reverse("MyJavaWorld")); 
+   }
+}
 
 
