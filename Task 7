@@ -2,26 +2,27 @@ PhoneNumberFormat.java
 
 interface Number
 {
-	boolean phoneNumberFormat(String Number);
+   boolean phoneNumberFormat(String Number);
 }
 abstract class country implements Number{}
+
 public class PhoneNumberFormat
 {
-	public static void main(String[ ] args)
-	{
-		India india=new India();
-	  Brazil brazil=new Brazil();
-	  Norway norway=new Norway();
-	  Qatar qatar=new Qatar();
-	  Turkey turkey=new Turkey();
-	  Turkey turkey1=new Turkey();
-		System.out.println(india.phoneNumberFormat("+91-9999999999"));
-		System.out.println(brazil.phoneNumberFormat("+55 15 99999-9999"));
-		System.out.println(norway.phoneNumberFormat("+47-49-99-99-99"));
-		System.out.println(qatar.phoneNumberFormat("+974 3399-9999"));
-		System.out.println(turkey.phoneNumberFormat("+90 509-999999"));
-		System.out.println(turkey1.phoneNumberFormat("0509-999-999"));
-	}
+   public static void main(String[ ] args)
+   {
+	India india=new India();
+	Brazil brazil=new Brazil();
+	Norway norway=new Norway();
+	Qatar qatar=new Qatar();
+	Turkey turkey=new Turkey();
+	Turkey turkey1=new Turkey();
+        System.out.println(india.phoneNumberFormat("+91-9999999999"));
+	System.out.println(brazil.phoneNumberFormat("+55 15 99999-9999"));
+	System.out.println(norway.phoneNumberFormat("+47-49-99-99-99"));
+	System.out.println(qatar.phoneNumberFormat("+974 3399-9999"));
+	System.out.println(turkey.phoneNumberFormat("+90 509-999999"));
+	System.out.println(turkey1.phoneNumberFormat("0509-999-999"));
+    }
 	
 }
 
@@ -29,164 +30,136 @@ public class PhoneNumberFormat
 India.java
 
 class India extends country
+{
+    public boolean phoneNumberFormat(String Number)
+    {
+	char[] ar= Number.toCharArray();
+	int i,count=0;
+	if(ar[0]=='+' && ar[1]=='9' && ar[2]=='1' && ar[3]=='-')
 	{
-	public boolean phoneNumberFormat(String Number)
-	{
-		char[] ar= Number.toCharArray();
-		int i,count=0;
-		if(ar[0]=='+' && ar[1]=='9' && ar[2]=='1' && ar[3]=='-')
-		{
-		for(i=4;i<ar.length;i++)
-		{
-			if(ar[i]>='0' && ar[i]<='9')
-				count++;
-			else
-				return false;
-		}
-		if(count!=10)
-			return false;
-		}
+	   for(i=4;i<ar.length;i++)
+	   {
+		if(ar[i]>='0' && ar[i]<='9')
+		  count++;
 		else
-			return false;
-		return true;
+		  return false;
+	   }
+	   if(count!=10)
+	     return false;
 	}
-	}
+	else
+          return false;
+  return true;
+ }
+}
+
   
   
 Brazil.java
   
   class Brazil extends country
-	{
-       public  boolean phoneNumberFormat(String Number)
+  {
+      public  boolean phoneNumberFormat(String Number)
+      {
+    	char[] ar= Number.toCharArray();
+    	int i,count=0;
+    	if(ar[0]=='+' && ar[1]=='5' && ar[2]=='5' && ar[3]==' ' && ar[4]=='1' && ar[5]=='5' && ar[6]==' ')
     	{
-    		char[] ar= Number.toCharArray();
-    		int i,count=0;
-    		if(ar[0]=='+' && ar[1]=='5' && ar[2]=='5' && ar[3]==' ' && ar[4]=='1' && ar[5]=='5' && ar[6]==' ')
-    		{
-    		for(i=7;i<ar.length;i++)
-    		{
-    			if(ar[i]>'0' && ar[i]<='9')
-    				count++;
-    			else if(i!=12)
-    			{
-    				if(ar[i]>'0' && ar[i]<='9')
-        				count++;
-        		else
-        				return false;
-    			}
-    			else
-    				if(ar[i]=='-')
-    					count++;
-    			}
-    		if(count!=10)
-    			return false;
-    		}
-    		else 
-    			return false;
-    		return true;
+    	   for(i=7;i<ar.length;i++)
+    	   {
+    	      if(i!=12)
+    	      {
+    		 if(ar[i]>='0' && ar[i]<='9')
+    		   count++;
+    		 else
+    		   return false;
+    	       }
+               else
+    		  if(ar[i]=='-')
+		    count++;
+    	    }
+    	    if(count!=10)
+    	      return false;
     	}
-	}
+    	else 
+    	  return false;
+   return true;
+   }
+ }
   
   
   Norway.java
   
-  
   class Norway extends country
-	{
-		public boolean phoneNumberFormat(String Number)
+  {
+     public boolean phoneNumberFormat(String Number)
+     {
+	char[] ar= Number.toCharArray();
+    	int i,count=0;
+    	if(ar[0]=='+' && ar[1]=='4' && ar[2]=='7' && ar[3]=='-' && ar[4]=='4' && ar[5]=='9' && ar[6]=='-')
     	{
-			char[] ar= Number.toCharArray();
-    		int i,count=0;
-    		if(ar[0]=='+' && ar[1]=='4' && ar[2]=='7' && ar[3]=='-' && ar[4]=='4' && ar[5]=='9' && ar[6]=='-')
+    	   for(i=7;i<ar.length;i++)
+    	   {
+    		if(i!=9 && i!=12)
     		{
-    		for(i=7;i<ar.length;i++)
-    		{
-    			if(ar[i]>'0' && ar[i]<='9')
-    				count++;
-    			else if(i!=9)
-    			{
-    				if(ar[i]>'0' && ar[i]<='9')
-        				count++;
-        		else
-    				 if(ar[i]=='-')
-    					count++;
-    				 else 
-    					if(ar[i]>'0' && ar[i]<='9')
-        				count++;
-        			else
-        				return false;
-    			}
-    			else if(i!=12)
-    			{
-    				if(ar[i]>'0' && ar[i]<='9')
-        				count++;
-    			  else
-    				if(ar[i]=='-')
-    					count++;
-    				else if(ar[i]>'0' && ar[i]<='9')
-        				count++;
-        			else
-        				return false;
-    			}
-    		else
-    			return false;
-			}
-    		if(count!=8)
-    			return false;
+    		    if(ar[i]>'0' && ar[i]<='9')
+        	      count++;
+    		    else
+    		      return false;
     		}
     		else
-    			return false;
-    		return true;
-    	}
+    		   if(ar[i]=='-')
+    		     count++;
+    	   }
+    	   if(count!=8)
+    	     return false;
 	}
-  
+    	else
+          return false;
+    return true;
+   }
+}
   
   
   Qatar.java
   
   
   class Qatar extends country
-	{
-		public boolean phoneNumberFormat(String Number)
+  {
+        public boolean phoneNumberFormat(String Number)
     	{
-    		char[] ar= Number.toCharArray();
-    		int i,count=0;
-    		if(ar[0]=='+' && ar[1]=='9' && ar[2]=='7' && ar[3]=='4' && ar[4]==' ')
-    		{
-    			for(i=5;i<ar.length;i++)
-        		{
-        			if(ar[i]>'0' && ar[i]<='9')
-        				count++;
-        			else if(i!=9)
-        			{
-        				if(ar[i]>'0' && ar[i]<='9')
-            				count++;
+    	   char[] ar= Number.toCharArray();
+    	   int i,count=0;
+           if(ar[0]=='+' && ar[1]=='9' && ar[2]=='7' && ar[3]=='4' && ar[4]==' ')
+    	   {
+    		for(i=5;i<ar.length;i++)
+        	{
+        	   if(i!=9)
+        	   {
+        		if(ar[i]>'0' && ar[i]<='9')
+            		   count++;
             		else
-            				return false;
-        			}
-        			else
-        				if(ar[i]=='-')
-        					count++;
-        				else if(ar[i]>'0' && ar[i]<='9')
-            				count++;
-            		else
-            				return false;
-        			}
-        		if(count!=9)
-        			return false;
-        		}
-        		else 
-        			return false;
-        		return true;
-        	}
-    	}
+            		   return false;
+        	   }
+        	   else
+        	     if(ar[i]=='-')
+        		count++;
+                 }
+        	 if(count!=9)
+        	   return false;
+         }
+         else 
+           return false;
+      return true;
+    }
+ }
       
       
 Turkey.java
       
   class Turkey extends country
-	{
-		public boolean phoneNumberFormat(String Number)
+  {
+	public boolean phoneNumberFormat(String Number)
     	{
     		char[] ar= Number.toCharArray();
     		int i,count=0;
@@ -203,33 +176,27 @@ Turkey.java
     	    	return false;
     		}
     		else if(ar[0]=='0' && ar[1]=='5' && ar[2]=='0' && ar[3]=='9' && ar[4]=='-')
-    	    {
-    			for(i=5;i<ar.length;i++)
+    	        {
+    		    for(i=5;i<ar.length;i++)
+        	    {
+        		if(i!=8)
         		{
-        			if(ar[i]>'0' && ar[i]<='9')
-        				count++;
-        			else if(i!=8)
-        			{
-        				if(ar[i]>'0' && ar[i]<='9')
-            				count++;
-            			else
-            				return false;
-        			}
-        			else
-        				if(ar[i]=='-')
-        					count++;
-        				else if(ar[i]>'0' && ar[i]<='9')
-        				count++;
-        			    else
-        				return false;
-        			}
+        		   if(ar[i]>'0' && ar[i]<='9')
+            			count++;
+            		   else
+            			return false;
+        		}
+        		else
+        		  if(ar[i]=='-')
+        		    count++;
+        		}
         		if(count!=7)
-        			return false;
+        		  return false;
         		}
         		else 
-        			return false;
-        		return true;
-        	}
-    	}
+        		  return false;
+        	return true;
+        }
+    }
   
 
