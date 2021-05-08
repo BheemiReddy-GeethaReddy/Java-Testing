@@ -1,0 +1,149 @@
+Car.java
+
+public class Car
+{
+
+private String name;
+private String price;
+private String color;
+
+public String getName() {
+return name;
+}
+public void setName(String name) {
+this.name = name;
+}
+public String getPrice() {
+return price;
+}
+public void setPrice(String price) {
+this.price = price;
+}
+public String getColor() {
+return color;
+}
+public void setColor(String team) {
+this.color = team;
+}
+
+public Car(String name, String price, String color) {
+super();
+this.name = name;
+this.price = price;
+this.color = color;
+}
+
+public Car() {
+
+}
+
+@Override
+public String toString() {
+	return "Cars Info :[name=" + name + ", price=" + price + ", color=" + color + "]"+"\n";
+}
+
+}
+
+
+
+ShowRoom.java
+
+public class ShowRoom {
+
+String	name;
+int cars;
+public String getName() {
+	return name;
+}
+public void setName(String name) {
+	this.name = name;
+}
+public int getCars() {
+	return cars;
+}
+public void setCars(int cars) {
+	this.cars = cars;
+}
+public ShowRoom(String name, int cars) {
+	super();
+	this.name = name;
+	this.cars = cars;
+}
+@Override
+public String toString() {
+	return "ShowRoom Info : [name=" + name + ", cars=" + cars + "]\n";
+}
+
+}
+
+
+MainShowRoom.java
+
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Scanner;
+import java.util.Set;
+
+
+public class MainShowRoom {
+
+	public static void main(String[] args) {
+
+		
+		Car car1=new Car("Innova","15 lakhs","Black");
+		Car car2=new Car("Swift","10 lakhs","red");
+		Car car3=new Car("BMW", "25 lakhs", "Blue");
+		
+		
+		Set<Car> car=new HashSet<>();
+		car.add(car1);
+		car.add(car2);
+		car.add(car3);
+		
+		Car car4=new Car("Maruti", "12 lakhs", "Green");
+		Car car5=new Car("Toyato", "8 lakhs", "Grey");
+    Car car6=new Car("Skoda", "14 lakhs", "Brown");
+    Car car7=new Car("Range Rover", "18 lakhs", "Orange");
+		
+		
+    Set<Car> cars=new HashSet<>();
+		
+    cars.add(car4);
+		cars.add(car5);
+		cars.add(car6);
+		cars.add(car6);
+		cars.add(car7);
+		
+		
+		ShowRoom sr1=new ShowRoom("ABC",3);
+		ShowRoom sr2=new ShowRoom("XYZ",4);
+		
+		System.out.println(sr1);
+		
+		System.out.println(sr2);
+
+		Map<String , Set<Car>> carss=new HashMap<String, Set<Car>>();
+		carss.put("ABC",car);
+		carss.put("XYZ",cars);
+		
+		System.out.println("Enter Show Room name to see the list of cars");
+		
+
+		@SuppressWarnings("resource")
+		Scanner sc=new Scanner(System.in);
+
+		String carr=sc.nextLine();
+		Set<Car>srcars=carss.get(carr);
+
+
+		for(Car caar:srcars)
+		{
+		System.out.println(caar);
+		}
+
+
+	}
+
+}
+
