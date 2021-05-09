@@ -324,8 +324,8 @@ for(Player player:players)
 out.print("<tr>");
 out.print("<td> "+ player.getName()+" </td>");
 out.print("<td> "+ player.getRole()+" </td>");
-out.print("<td> "+player.getTeam()+" </td>");
 out.print("<td> "+player.getJerseyno()+" </td>");
+out.print("<td> "+player.getTeam()+" </td>");
 out.print("</tr>");
 }
 %>
